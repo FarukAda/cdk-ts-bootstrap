@@ -3,6 +3,7 @@ import * as path from 'path';
 import * as camelcase from 'camelcase';
 import * as replace from 'replace-in-file';
 
+// Rename all files before pushing to new repo
 export const RenameStack = async (newRepoPath: string, newRepoName: string) => {
     const newReponamePascalCase = camelcase(newRepoName, { pascalCase: true });
 
@@ -20,6 +21,11 @@ export const RenameStack = async (newRepoPath: string, newRepoName: string) => {
         files: [stackFileName, environmentFilesDev, environmentFilesTst, environmentFilesPrd, stackInterface],
         from: /ICdkTsBootstrapStackProps/g,
         to: `I${newReponamePascalCase}StackProps`,
+    });
+    await replace.replaceInFile({
+        files: [environmentFilesDev, environmentFilesTst, environmentFilesPrd],
+        from: 'CdkTsBootstrapStack',
+        to: `${newReponamePascalCase}Stack`,
     });
     await replace.replaceInFile({
         files: [stackFileName, appFileName, cdkTestFileName],

@@ -11,11 +11,11 @@
         "watch": "tsc -w",
         "test": "jest --passWithNoTests",
         "diff-dev": "npx cdk diff cdk-ts-bootstrap-dev --ci --require-approval never --no-asset-metadata",
-        "diff-tst": "npx cdk diff aws-ts-cdk-bootstrap-tst --ci --require-approval never --no-asset-metadata",
-        "diff-prd": "npx cdk diff aws-ts-cdk-bootstrap-prd --ci --require-approval never --no-asset-metadata",
+        "diff-tst": "npx cdk diff cdk-ts-bootstrap-tst --ci --require-approval never --no-asset-metadata",
+        "diff-prd": "npx cdk diff cdk-ts-bootstrap-prd --ci --require-approval never --no-asset-metadata",
         "deploy-dev": "npx cdk deploy cdk-ts-bootstrap-dev --ci --require-approval never --no-asset-metadata",
-        "deploy-tst": "npx cdk deploy aws-ts-cdk-bootstrap-tst --ci --require-approval never --no-asset-metadata",
-        "deploy-prd": "npx cdk deploy aws-ts-cdk-bootstrap-prd --ci --require-approval never --no-asset-metadata"
+        "deploy-tst": "npx cdk deploy cdk-ts-bootstrap-tst --ci --require-approval never --no-asset-metadata",
+        "deploy-prd": "npx cdk deploy cdk-ts-bootstrap-prd --ci --require-approval never --no-asset-metadata"
     },
     "devDependencies": {
         "@octokit/rest": "^18.12.0",

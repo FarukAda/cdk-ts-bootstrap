@@ -3,7 +3,7 @@ import * as path from 'path';
 import { execSync } from 'child_process';
 
 export const CleanFiles = async (newRepoPath: string) => {
-    const githubSetupAction = path.resolve(newRepoPath, '.github', 'workflows', 'create_stack.yaml');
+    const githubSetupAction = path.resolve(newRepoPath, '.github', 'workflows', 'create.yaml');
     fs.rm(githubSetupAction, (err: any) => {
         if (err) {
             console.log(err)

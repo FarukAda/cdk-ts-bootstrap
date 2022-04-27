@@ -5,6 +5,7 @@ export interface GithubEnvPublicKey {
     keyId: string
 }
 
+// Get github key for pushing to new repo
 export const KeyGitHub = async (
     repoName: string,
     OWNER: string,

@@ -10,7 +10,7 @@ export class CdkTsBootstrapStack extends Stack {
     super(scope, id, props);
 
     // example resource
-    new sqs.Queue(this, 'CdkTsBootstrapQueue', {
+    new sqs.Queue(this, 'Queue', {
       queueName: 'testName',
       visibilityTimeout: Duration.seconds(300),
     });
