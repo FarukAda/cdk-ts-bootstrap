@@ -7,7 +7,7 @@ export const RenameStack = async (newRepoPath: string, newRepoName: string) => {
     const newReponamePascalCase = camelcase(newRepoName, { pascalCase: true });
 
     const stackFileName = path.resolve(newRepoPath, 'lib', 'cdk-ts-bootstrap-stack.ts');
-    const appFileName = path.resolve(newRepoPath, 'bin', 'cdk-ts-bootstrap-stack.ts');
+    const appFileName = path.resolve(newRepoPath, 'bin', 'cdk-ts-bootstrap.ts');
     const environmentFilesDev = path.resolve(newRepoPath, 'bin', 'dev-stack-config.ts');
     const environmentFilesTst = path.resolve(newRepoPath, 'bin', 'tst-stack-config.ts');
     const environmentFilesPrd = path.resolve(newRepoPath, 'bin', 'prd-stack-config.ts');

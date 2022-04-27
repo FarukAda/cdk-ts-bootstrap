@@ -66,7 +66,7 @@ const main = async () => {
     // checkout boilerplate repo and remove git information.
     const boilerplateGit: SimpleGit = simpleGit();
     await boilerplateGit.clone(`https://${GITHUB_TOKEN}@github.com/${OWNER}/cdk-ts-bootstrap.git`, newRepoPath);
-    fs.rmdirSync(`${newRepoPath}/.git`, { recursive: true });
+    fs.rmSync(`${newRepoPath}/.git`, { recursive: true });
     console.log('(4/8) Cloned cdk-ts-bootstrap...');
 
     // repace boilerplate names with new repo names.
