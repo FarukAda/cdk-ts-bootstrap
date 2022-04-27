@@ -16,7 +16,7 @@ export interface GithubRepo {
     name: string
 }
 
-const OWNER = 'FarukAda';
+const OWNER = 'CodingWithFaruci';
 const GITHUB_TOKEN = process.env.MT_GITHUB_TOKEN as string;
 const AWS_ACCESS_KEY_ID = process.env.AWS_ACCESS_KEY_ID as string;
 const AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY as string;
@@ -65,9 +65,9 @@ const main = async () => {
 
     // checkout boilerplate repo and remove git information.
     const boilerplateGit: SimpleGit = simpleGit();
-    await boilerplateGit.clone(`https://${GITHUB_TOKEN}@github.com/${OWNER}/mt-aws-cdk-bootstrap.git`, newRepoPath);
+    await boilerplateGit.clone(`https://${GITHUB_TOKEN}@github.com/${OWNER}/cdk-ts-bootstrap.git`, newRepoPath);
     fs.rmdirSync(`${newRepoPath}/.git`, { recursive: true });
-    console.log('(4/8) Cloned mt-aws-cdk-bootstrap...');
+    console.log('(4/8) Cloned cdk-ts-bootstrap...');
 
     // repace boilerplate names with new repo names.
     await RenameStack(
