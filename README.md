@@ -1,13 +1,14 @@
-# Welcome to your CDK TypeScript project
+# AWS CDK TypeScript Bootstrap
 
-This is a blank project for CDK development with TypeScript.
+This repository is a template for bootstrapping new AWS CDK TypeScript projects.
+By running the GitHub Actions workflow a new repository will be created containing configuration for Jest, ESLint and Webpack.
+Additonally it will contain a GitHub Actions CDK deployment pipeline using the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY in this repository.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+For usage run the create workflow and enter new stackname.
 
 ## Useful commands
 
 * `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
 * `npm run test`    perform the jest unit tests
 * `cdk deploy`      deploy this stack to your default AWS account/region
 * `cdk diff`        compare deployed stack with current state
