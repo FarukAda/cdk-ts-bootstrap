@@ -1,6 +1,6 @@
 import { Octokit } from '@octokit/rest';
 import * as sodium from 'tweetsodium';
-import { getRepositoryPublicKey } from "./get-repository-public-key";
+import { KeyGitHub } from './key';
 
 // Encrypts the secrets before storing then in repository environment
 export const EncryptSecret = async (
@@ -9,7 +9,7 @@ export const EncryptSecret = async (
     OWNER: string,
     octokit: Octokit,
 ): Promise<{ encrypted: string, keyId: string }> => {
-    const envKey = await getRepositoryPublicKey(repoName, OWNER, octokit);
+    const envKey = await KeyGitHub(repoName, OWNER, octokit);
 
     // Convert the message and key to Uint8Array's (Buffer implements that interface)
     const messageBytes = Buffer.from(valueToEncrypt);
