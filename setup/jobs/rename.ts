@@ -24,8 +24,8 @@ export const RenameStack = async (newRepoPath: string, newRepoName: string) => {
     });
     await replace.replaceInFile({
         files: [environmentFilesDev, environmentFilesTst, environmentFilesPrd],
-        from: 'CdkTsBootstrapStack',
-        to: `${newReponamePascalCase}Stack`,
+        from: /CdkTsBootstrap/g,
+        to: `${newReponamePascalCase}`,
     });
     await replace.replaceInFile({
         files: [stackFileName, appFileName, cdkTestFileName],
