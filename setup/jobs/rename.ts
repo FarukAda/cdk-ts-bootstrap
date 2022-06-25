@@ -1,11 +1,11 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import * as camelcase from 'camelcase';
+import camelCase from 'camelcase';
 import * as replace from 'replace-in-file';
 
 // Rename all files before pushing to new repo
 export const RenameStack = async (newRepoPath: string, newRepoName: string) => {
-    const newReponamePascalCase = camelcase.default(newRepoName, { pascalCase: true });
+    const newReponamePascalCase = camelCase(newRepoName, { pascalCase: true });
 
     const stackFileName = path.resolve(newRepoPath, 'lib', 'cdk-ts-bootstrap-stack.ts');
     const appFileName = path.resolve(newRepoPath, 'bin', 'cdk-ts-bootstrap.ts');
