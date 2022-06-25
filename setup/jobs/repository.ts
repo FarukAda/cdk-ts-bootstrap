@@ -18,8 +18,8 @@ export const RepositoryCreation = async (newRepoPath: string, newRepoName: strin
     // remove setup dependencies and install needed dependencies
     execSync(`cd ${newRepoPath} && npm install && npm up`);
 
-    await newRepoGit.addConfig('user.name', 'github-actions');
-    await newRepoGit.addConfig('user.email', 'faruk88ada@gmail.com');
+    await newRepoGit.addConfig('user.name', 'cdk-ts-bootstrap');
+    await newRepoGit.addConfig('user.email', 'cdk-ts-bootstrap@gmail.com');
     await newRepoGit.add('./*');
     await newRepoGit.commit('Initial commit');
     await newRepoGit.branch(['-M', 'main']);

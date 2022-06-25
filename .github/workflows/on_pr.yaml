@@ -5,6 +5,10 @@ on:
     branches:
     - main
 
+concurrency:
+  group: pr-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     name: Check AWS CDK Stack
@@ -15,13 +19,13 @@ jobs:
       - name: Current User
         run: echo $GITHUB_ACTOR
 
-      - name: Check Out Repository
-        uses: actions/checkout@v3
+      - name: Check Out Code
+        uses: actions/checkout@v3.0.2
 
-      - name: Check Out Node Version 14
-        uses: actions/setup-node@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3.3.0
         with:
-          node-version: '14'
+          node-version: '16'
 
       - name: Install Dependencies
         run: npm ci
@@ -36,7 +40,7 @@ jobs:
         run: npm run test
 
       - name: Deploy AWS CDK Stack
-        run: npm run diff-dev
+        run: npm run diff
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

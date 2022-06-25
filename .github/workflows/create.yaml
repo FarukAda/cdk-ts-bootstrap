@@ -13,9 +13,11 @@ jobs:
     name: Create AWS CDK TypeScript Stack.
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Check Out Code
+        uses: actions/checkout@v3.0.2
 
-      - uses: actions/setup-node@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3.3.0
         with:
           node-version: '16'
 
@@ -25,6 +27,6 @@ jobs:
       - name: Create Stack.
         run: npx ts-node ./setup/index.ts -n ${{ github.event.inputs.stack-name }}
         env:
-          MT_GITHUB_TOKEN: ${{ secrets.MT_GITHUB_TOKEN }}
+          MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

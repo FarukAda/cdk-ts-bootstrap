@@ -17,7 +17,7 @@ export interface GithubRepo {
 }
 
 const OWNER = 'CodingWithFaruci';
-const GITHUB_TOKEN = process.env.MT_GITHUB_TOKEN as string;
+const GITHUB_TOKEN = process.env.MY_GITHUB_TOKEN as string;
 const AWS_ACCESS_KEY_ID = process.env.AWS_ACCESS_KEY_ID as string;
 const AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY as string;
 

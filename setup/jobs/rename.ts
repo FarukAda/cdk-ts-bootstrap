@@ -5,25 +5,23 @@ import * as replace from 'replace-in-file';
 
 // Rename all files before pushing to new repo
 export const RenameStack = async (newRepoPath: string, newRepoName: string) => {
-    const newReponamePascalCase = camelcase(newRepoName, { pascalCase: true });
+    const newReponamePascalCase = camelcase.default(newRepoName, { pascalCase: true });
 
     const stackFileName = path.resolve(newRepoPath, 'lib', 'cdk-ts-bootstrap-stack.ts');
     const appFileName = path.resolve(newRepoPath, 'bin', 'cdk-ts-bootstrap.ts');
-    const environmentFilesDev = path.resolve(newRepoPath, 'bin', 'dev-stack-config.ts');
-    const environmentFilesTst = path.resolve(newRepoPath, 'bin', 'tst-stack-config.ts');
-    const environmentFilesPrd = path.resolve(newRepoPath, 'bin', 'prd-stack-config.ts');
+    const environmentFiles = path.resolve(newRepoPath, 'bin', 'stack-config.ts');
     const stackInterface = path.resolve(newRepoPath, 'bin', 'stack-environment-types.ts');
     const cdkTestFileName = path.resolve(newRepoPath, 'test', 'cdk-ts-bootstrap.test.ts');
     const packageFileName = path.resolve(newRepoPath, 'package.json');
     const cdkFileName = path.resolve(newRepoPath, 'cdk.json');
 
     await replace.replaceInFile({
-        files: [stackFileName, environmentFilesDev, environmentFilesTst, environmentFilesPrd, stackInterface],
+        files: [stackFileName, environmentFiles, stackInterface],
         from: /ICdkTsBootstrapStackProps/g,
         to: `I${newReponamePascalCase}StackProps`,
     });
     await replace.replaceInFile({
-        files: [environmentFilesDev, environmentFilesTst, environmentFilesPrd],
+        files: [environmentFiles],
         from: /CdkTsBootstrap/g,
         to: `${newReponamePascalCase}`,
     });
