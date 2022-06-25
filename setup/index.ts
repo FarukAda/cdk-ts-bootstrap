@@ -80,7 +80,7 @@ const main = async () => {
     await clean.CleanFiles(newRepoPath);
     await clean.CleanDirectory(newRepoPath);
     await clean.CleanDependencies(newRepoPath);
-    await clean.CleanReadme(newRepoPath);
+    await clean.CleanReadme(newRepoPath, newGithubRepo.name);
     console.log('(6/8) Cleaned up setup files...');
 
     // initialize new repo and push the initial commit.
