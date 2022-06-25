@@ -24,3 +24,8 @@ export const CleanDependencies = async (newRepoPath: string) => {
     const setupDependencies = '@octokit/rest @octokit/types @types/camelcase @types/yargs @types/libsodium-wrappers acorn ajv ajv-keywords camelcase dotenv replace-in-file simple-git standard-version libsodium-wrappers yargs';
     execSync(`cd ${newRepoPath} && npm uninstall ${setupDependencies}`);
 }
+
+export const CleanReadme = async (newRepoPath: string) => {
+    const setupDependencies = '@octokit/rest @octokit/types @types/camelcase @types/yargs @types/libsodium-wrappers acorn ajv ajv-keywords camelcase dotenv replace-in-file simple-git standard-version libsodium-wrappers yargs';
+    execSync(`cd ${newRepoPath} && rm README.md && echo ${newRepoPath} >> README.md`);
+}
