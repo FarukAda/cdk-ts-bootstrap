@@ -26,5 +26,5 @@ export const CleanDependencies = async (newRepoPath: string) => {
 }
 
 export const CleanReadme = async (newRepoPath: string, newRepoName: string) => {
-    execSync(`cd ${newRepoPath} && rm README.md && echo #${newRepoName} >> README.md`);
+    execSync(`cd ${newRepoPath} && rm README.md && echo '# ${newRepoName}' >> README.md`);
 }
