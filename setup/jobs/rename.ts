@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import camelCase from 'camelcase';
+import * as camelCase from 'camelcase';
 import * as replace from 'replace-in-file';
 
 // Rename all files before pushing to new repo
