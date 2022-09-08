@@ -2,6 +2,7 @@ dist
 setup
 node_modules
 jest.config.ts
+webpack.config.js
 **/__mocks__/
 
 *.spec.js
